@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gym Bros team charter for CIS 5040 Human-Centered Design.">
+  <title>Gym Bros | Team Charter</title>
+
+  <!-- Preferred typefaces. The fallbacks keep the page readable if Google Fonts is unavailable. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Color and spacing settings ---------- */
+    :root {
+      --navy: #071b33;
+      --navy-soft: #123253;
+      --cream: #f7f0df;
+      --cream-light: #fffdf7;
+      --gold: #c79b36;
+      --gold-light: #e6c978;
+      --ink: #192638;
+      --muted: #5d6670;
+      --line: rgba(199, 155, 54, 0.38);
+      --shadow: 0 18px 45px rgba(7, 27, 51, 0.13);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--cream-light);
+      color: var(--ink);
+      font-family: "Lora", Georgia, serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    a:focus-visible {
+      outline: 3px solid var(--gold-light);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* ---------- Top navigation ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 27, 51, 0.97);
+      border-bottom: 1px solid rgba(230, 201, 120, 0.35);
+    }
+
+    .nav-wrap {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--cream);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--gold-light); }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px 22px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav a {
+      color: #fffaf0;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    nav a:hover { color: var(--gold-light); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 104px 0 92px;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(199, 155, 54, 0.20), transparent 27%),
+        linear-gradient(135deg, #06182e 0%, #0b2a4a 62%, #123253 100%);
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -155px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(230, 201, 120, 0.2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 42px rgba(230, 201, 120, 0.04), 0 0 0 84px rgba(230, 201, 120, 0.025);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold-light);
+      font-family: "Lora", Georgia, serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      line-height: 1.18;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 6.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    .hero-intro {
+      max-width: 650px;
+      margin: 24px 0 0;
+      color: #e9edf2;
+      font-size: clamp(1rem, 2vw, 1.22rem);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .meta-pill {
+      padding: 8px 15px;
+      border: 1px solid rgba(230, 201, 120, 0.5);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--cream);
+      font-size: 0.86rem;
+    }
+
+    /* A small gym-inspired divider built only with CSS. */
+    .barbell {
+      display: flex;
+      align-items: center;
+      width: 180px;
+      margin-bottom: 26px;
+    }
+
+    .barbell::before,
+    .barbell::after {
+      content: "";
+      width: 13px;
+      height: 34px;
+      border: 4px double var(--gold-light);
+      border-radius: 3px;
+    }
+
+    .barbell span {
+      width: 100%;
+      height: 4px;
+      background: var(--gold-light);
+    }
+
+    /* ---------- Main sections ---------- */
+    main { padding: 76px 0 88px; }
+
+    .section { scroll-margin-top: 92px; }
+
+    .section + .section { margin-top: 78px; }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .section-number {
+      padding-top: 7px;
+      border-top: 3px solid var(--gold);
+      color: var(--navy-soft);
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.025em;
+    }
+
+    .section-kicker {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: 0 8px 26px rgba(7, 27, 51, 0.06);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 1.32rem;
+    }
+
+    .card p { margin: 0; }
+
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+      grid-column: 1 / -1;
+      padding: clamp(30px, 5vw, 50px);
+      background: var(--cream);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 7px;
+      background: var(--gold);
+    }
+
+    .identity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .member {
+      min-height: 162px;
+      padding: 24px 20px;
+      border-top: 4px solid var(--gold);
+      background: var(--navy);
+      color: #f8f4e9;
+      box-shadow: var(--shadow);
+    }
+
+    .member h3 { margin: 0 0 12px; color: white; }
+    .member p { margin: 3px 0; font-size: 0.88rem; overflow-wrap: anywhere; }
+    .member a { color: var(--gold-light); }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .fact {
+      min-height: 178px;
+      padding: 30px;
+      background: var(--navy);
+      color: #f8f4e9;
+    }
+
+    .fact .label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--gold-light);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .fact p { margin: 0; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      padding: 38px 0;
+      border-top: 5px solid var(--gold);
+      background: var(--navy);
+      color: #e8ecf0;
+    }
+
+    .footer-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    footer p { margin: 0; font-size: 0.9rem; }
+    .footer-name { color: var(--gold-light); font-family: "Playfair Display", Georgia, serif; font-size: 1.3rem; font-weight: 700; }
+
+    .university-mark {
+      display: inline-flex;
+      align-items: center;
+      margin-left: auto;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: rgba(255, 253, 247, 0.9);
+      opacity: 0.72;
+      transition: opacity 180ms ease;
+    }
+
+    .university-mark:hover,
+    .university-mark:focus-visible { opacity: 1; }
+
+    .university-mark img {
+      display: block;
+      width: 145px;
+      max-height: 32px;
+      object-fit: contain;
+    }
+
+    /* ---------- Responsive layout ---------- */
+    @media (max-width: 860px) {
+      .site-header { position: static; }
+      .nav-wrap { padding-block: 16px; align-items: flex-start; }
+      nav ul { display: none; }
+      .hero { padding: 74px 0; }
+      .identity-grid { grid-template-columns: repeat(2, 1fr); }
+      .quick-facts { grid-template-columns: 1fr; }
+      .fact { min-height: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1120px); }
+      main { padding-block: 56px 68px; }
+      .section + .section { margin-top: 58px; }
+      .section-heading { grid-template-columns: 48px 1fr; gap: 14px; }
+      .card-grid, .identity-grid { grid-template-columns: 1fr; }
+      .card { padding: 24px; }
+      .member { min-height: auto; }
+      .footer-wrap { display: block; }
+      .footer-wrap p + p { margin-top: 8px; }
+      .university-mark { margin: 18px 0 0; }
+    }
+
+    /* Remove motion for visitors who prefer it. */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media print {
+      .site-header { display: none; }
+      .hero { padding: 48px 0; }
+      .section + .section { margin-top: 40px; }
+      .card, .member, .quick-facts { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">Gym <span>Bros</span></a>
+      <nav aria-label="Team charter sections">
+        <ul>
+          <li><a href="#identity">Team</a></li>
+          <li><a href="#purpose">Purpose</a></li>
+          <li><a href="#communication">Communication</a></li>
+          <li><a href="#decisions">Decisions</a></li>
+          <li><a href="#agreements">Agreements</a></li>
+          <li><a href="#success">Success</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top" aria-labelledby="page-title">
+    <div class="container">
+      <div class="barbell" aria-hidden="true"><span></span></div>
+      <p class="eyebrow">CIS 5040 · Human-Centered Design</p>
+      <h1 id="page-title">Team Charter</h1>
+      <p class="hero-intro">A shared foundation for how Gym Bros will collaborate, make decisions, remain accountable, and measure success.</p>
+      <div class="hero-meta" aria-label="Charter details">
+        <span class="meta-pill">Team: Gym Bros</span>
+        <span class="meta-pill">September 10, 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="section" id="identity" aria-labelledby="identity-title">
+      <div class="section-heading">
+        <span class="section-number">01</span>
+        <div>
+          <h2 id="identity-title">Team Identity</h2>
+          <p class="section-kicker">Members &amp; Contacts</p>
+        </div>
+      </div>
+      <div class="identity-grid">
+        <article class="member">
+          <h3>Fathi Hamdi</h3>
+          <p><a href="mailto:FathiHamdi.iT@gmailcom">FathiHamdi.iT@gmailcom</a></p>
+          <p><a href="tel:+13233782619">323-378-2619</a></p>
+        </article>
+        <article class="member">
+          <h3>Irving</h3>
+          <p><a href="tel:+13239478717">323-947-8717</a></p>
+        </article>
+        <article class="member">
+          <h3>Justin</h3>
+          <p><a href="tel:+16268027041">626-802-7041</a></p>
+        </article>
+        <article class="member">
+          <h3>Leander</h3>
+          <p><a href="tel:+13104878812">310-487-8812</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="purpose" aria-labelledby="purpose-title">
+      <div class="section-heading">
+        <span class="section-number">02</span>
+        <div>
+          <h2 id="purpose-title">Shared Purpose</h2>
+          <p class="section-kicker">The project vision and definition of success</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <article class="card feature-card">
+          <h3>Goal</h3>
+          <p>The shared goal of this project is to create an intuitive dashboard for the Cal State LA Math Gym. The dashboard will transform data currently stored in Excel files into clear, meaningful visualizations and analytics. This will reduce the time and effort required to interpret large amounts of information, allowing the user to focus on identifying trends, demonstrating the Math Gym's impact, and presenting compelling evidence to current and potential funders.</p>
+        </article>
+        <article class="card feature-card">
+          <h3>What success looks like</h3>
+          <p>The system should allow users to easily track student participation, identify trends, measure program outcomes, and generate evidence for funding proposals. The overall experience should feel simple, efficient, and not overwhelming, giving the Math Gym team more time to focus on student support, program improvement, and long-term growth.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="communication" aria-labelledby="communication-title">
+      <div class="section-heading">
+        <span class="section-number">03</span>
+        <div>
+          <h2 id="communication-title">Communication</h2>
+          <p class="section-kicker">How the team stays connected</p>
+        </div>
+      </div>
+      <div class="quick-facts">
+        <article class="fact">
+          <span class="label">Platform</span>
+          <p>iMessage group chat and through email</p>
+        </article>
+        <article class="fact">
+          <span class="label">Response time</span>
+          <p>24 Hour Max Response Time</p>
+        </article>
+        <article class="fact">
+          <span class="label">Meetings</span>
+          <p>Weekly Check-ins before or after class.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="decisions" aria-labelledby="decisions-title">
+      <div class="section-heading">
+        <span class="section-number">04</span>
+        <div>
+          <h2 id="decisions-title">Decision-Making</h2>
+          <p class="section-kicker">A fair path from discussion to action</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <h3>How decisions are made</h3>
+          <p>The team will make decisions based on majority votes.</p>
+        </article>
+        <article class="card">
+          <h3>How disagreements are handled</h3>
+          <p>Each member should have the opportunity to explain their perspective and provide supporting evidence on that opinion. Majority vote should allow us to move forward with the decision and all team members should support it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="agreements" aria-labelledby="agreements-title">
+      <div class="section-heading">
+        <span class="section-number">05</span>
+        <div>
+          <h2 id="agreements-title">Working Agreements</h2>
+          <p class="section-kicker">Participation, accountability, and deadlines</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Participation</h3>
+          <p>Active participation looks like everyone is on the same page and opening communicative about the project.</p>
+        </article>
+        <article class="card">
+          <h3>Accountability</h3>
+          <p>We will have a checklist every week of what each individual needs to do. That way when a deadline is missed by a group member, the rest of us can hold that group member accountable.</p>
+        </article>
+        <article class="card feature-card">
+          <h3>Deadlines</h3>
+          <p>We will have a calendar that will list the deadlines throughout the course.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="conflict" aria-labelledby="conflict-title">
+      <div class="section-heading">
+        <span class="section-number">06</span>
+        <div>
+          <h2 id="conflict-title">Conflict Resolution</h2>
+          <p class="section-kicker">How concerns are addressed constructively</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Unresponsive teammate</h3>
+          <p>Reach out to the group member and see how they are doing. If they aren't responsive then we will bring it up to the professor.</p>
+        </article>
+        <article class="card">
+          <h3>How concerns are raised</h3>
+          <p>The safest way for one of us to raise the concerns is to mention it when we meet with our groups.</p>
+        </article>
+        <article class="card feature-card">
+          <h3>When to involve the instructor</h3>
+          <p>When we notice that it is beyond our control.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="success" aria-labelledby="success-title">
+      <div class="section-heading">
+        <span class="section-number">07</span>
+        <div>
+          <h2 id="success-title">Success Metrics</h2>
+          <p class="section-kicker">What the team aims to deliver and demonstrate</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <article class="card feature-card">
+          <h3>What will make us proud</h3>
+          <p>Being able to deliver a product to our consumer that they will use throughout the course duration.</p>
+        </article>
+        <article class="card feature-card">
+          <h3>Behaviors that define success</h3>
+          <p>When each group member can happily and confidently describe the process and the outcome of the overall experience of the product.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p class="footer-name">Gym Bros</p>
+      <p>CIS 5040 · Human-Centered Design · Team Charter</p>
+      <a class="university-mark" href="https://www.calstatela.edu/" aria-label="Visit the Cal State LA website">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Cal_state_la_textlogo.png" alt="Cal State LA">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
