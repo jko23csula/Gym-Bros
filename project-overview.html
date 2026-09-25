@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gym Bros project overview for the Cal State LA Math Gym.">
+  <title>Gym Bros | Project Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#071b33; --navy-soft:#123253; --cream:#f7f0df; --light:#fffdf7; --gold:#c79b36; --gold-light:#e6c978; --ink:#192638; --muted:#5d6670; --line:rgba(199,155,54,.38); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--light); color:var(--ink); font:16px/1.75 "Lora",Georgia,serif; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--gold-light); outline-offset:4px; }
+    .container { width:min(1060px,calc(100% - 40px)); margin-inline:auto; }
+    header { position:sticky; top:0; z-index:10; background:rgba(7,27,51,.97); border-bottom:1px solid rgba(230,201,120,.35); }
+    .nav { min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { color:var(--cream); font-family:"Playfair Display",Georgia,serif; font-size:1.2rem; font-weight:700; text-decoration:none; }
+    .brand span { color:var(--gold-light); }
+    nav ul { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px 20px; margin:0; padding:0; list-style:none; }
+    nav a { color:white; font-size:.76rem; font-weight:600; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }
+    nav a:hover { color:var(--gold-light); }
+    .hero { padding:92px 0 80px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='260' viewBox='0 0 560 260'%3E%3Cg fill='%23ffffff' fill-opacity='.09' font-family='Georgia,serif'%3E%3Ctext x='22' y='48' font-size='22'%3Ex%C2%B2 %2B y%C2%B2 = r%C2%B2%3C/text%3E%3Ctext x='365' y='40' font-size='21'%3E%E2%88%AB f(x) dx%3C/text%3E%3Ctext x='130' y='132' font-size='26'%3E%E2%88%91 n = n(n%2B1)/2%3C/text%3E%3Ctext x='390' y='175' font-size='22'%3Ey = mx %2B b%3C/text%3E%3Ctext x='28' y='226' font-size='21'%3Ea%C2%B2 %2B b%C2%B2 = c%C2%B2%3C/text%3E%3C/g%3E%3C/svg%3E"),radial-gradient(circle at 82% 18%,rgba(199,155,54,.2),transparent 28%),linear-gradient(135deg,#06182e,#123253); color:white; }
+    .eyebrow { margin:0 0 14px; color:var(--gold-light); font-size:.78rem; font-weight:600; letter-spacing:.17em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:"Playfair Display",Georgia,serif; line-height:1.18; }
+    h1 { max-width:800px; margin:0; font-size:clamp(3rem,8vw,5.8rem); letter-spacing:-.04em; }
+    .intro { max-width:680px; margin:24px 0 0; color:#e9edf2; font-size:clamp(1rem,2vw,1.2rem); }
+    main { padding:72px 0 88px; background-color:var(--light); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='270' viewBox='0 0 460 270'%3E%3Cg fill='%23071b33' fill-opacity='.10' font-family='Georgia,serif'%3E%3Ctext x='18' y='45' font-size='22'%3Ex%C2%B2 %2B y%C2%B2 = r%C2%B2%3C/text%3E%3Ctext x='285' y='38' font-size='19'%3E%E2%88%AB f(x) dx%3C/text%3E%3Ctext x='85' y='124' font-size='25'%3E%E2%88%91 n = n(n%2B1)/2%3C/text%3E%3Ctext x='292' y='165' font-size='21'%3Ey = mx %2B b%3C/text%3E%3Ctext x='20' y='224' font-size='20'%3Ea%C2%B2 %2B b%C2%B2 = c%C2%B2%3C/text%3E%3Ctext x='325' y='250' font-size='23'%3E%CF%80r%C2%B2%3C/text%3E%3C/g%3E%3C/svg%3E"); background-size:460px 270px; background-attachment:fixed; }
+    .section { scroll-margin-top:92px; }
+    .section + .section { margin-top:68px; }
+    .heading { display:grid; grid-template-columns:70px 1fr; gap:20px; margin-bottom:26px; }
+    .number { padding-top:7px; border-top:3px solid var(--gold); color:var(--navy-soft); font-family:"Playfair Display",Georgia,serif; font-weight:700; }
+    h2 { margin:0; color:var(--navy); font-size:clamp(2rem,5vw,3rem); letter-spacing:-.025em; }
+    .kicker { margin:5px 0 0; color:var(--muted); font-size:.92rem; }
+    .card { padding:clamp(28px,5vw,48px); border:1px solid var(--line); border-left:7px solid var(--gold); border-radius:18px; background:white; box-shadow:0 14px 38px rgba(7,27,51,.09); }
+    .card h3 { margin:0 0 12px; color:var(--navy); font-size:1.45rem; }
+    .card p { margin:0; }
+    .people { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .person { padding:28px; border-top:4px solid var(--gold); background:var(--navy); color:white; box-shadow:0 14px 38px rgba(7,27,51,.12); }
+    .person h3 { margin:0; color:white; font-size:1.3rem; }
+    footer { padding:34px 0; border-top:5px solid var(--gold); background:var(--navy); color:#e8ecf0; }
+    footer p { margin:0; }
+    @media (max-width:760px) { header { position:static; } .nav { padding:14px 0; align-items:flex-start; } nav ul { gap:7px 12px; } .hero { padding:68px 0; } .people { grid-template-columns:1fr; } }
+    @media (max-width:520px) { .container { width:min(100% - 28px,1060px); } .heading { grid-template-columns:46px 1fr; gap:14px; } nav a { font-size:.68rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">Gym <span>Bros</span></a>
+      <nav aria-label="Project overview sections">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#client">Client</a></li>
+          <li><a href="#organization">Organization</a></li>
+          <li><a href="#project-goal-scope">Goal &amp; Scope</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Cal State LA Math Gym</p>
+      <h1>Project Overview</h1>
+      <p class="intro">A student-centered project focused on forecasting tutoring demand and helping the Math Gym provide timely, balanced support.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="section" id="client" aria-labelledby="client-title">
+      <div class="heading">
+        <span class="number">01</span>
+        <div><h2 id="client-title">Client</h2><p class="kicker">The people guiding our work</p></div>
+      </div>
+      <div class="people">
+        <article class="person"><h3>Dr. Daphne Liu</h3></article>
+        <article class="person"><h3>Dr. Jason O'Neill</h3></article>
+      </div>
+    </section>
+
+    <section class="section" id="organization" aria-labelledby="organization-title">
+      <div class="heading">
+        <span class="number">02</span>
+        <div><h2 id="organization-title">Organization</h2><p class="kicker">The community our solution will support</p></div>
+      </div>
+      <article class="card">
+        <h3>Cal State LA Math Gym</h3>
+        <p>Math Tutoring Center</p>
+      </article>
+    </section>
+
+    <section class="section" id="project-goal-scope" aria-labelledby="goal-title">
+      <div class="heading">
+        <span class="number">03</span>
+        <div><h2 id="goal-title">Project Goal &amp; Scope</h2><p class="kicker">What we aim to improve and how success will be measured</p></div>
+      </div>
+      <article class="card">
+        <p>Our project will help the Math Gym improve the student experience by forecasting drop-in tutoring demand and supporting a more balanced student-to-math-coach ratio. We will know we have succeeded when coaches feel less overwhelmed during peak hours and students receive timely support, leading to stronger participation and retention. The solution is also intended to be adaptable for other tutoring centers facing similar scheduling and staffing challenges.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer><div class="container"><p>Gym Bros · CIS 5040 · Human-Centered Design</p></div></footer>
+</body>
+</html>
