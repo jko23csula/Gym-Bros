@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gym Bros personas for the Cal State LA Math Gym project.">
+  <title>Gym Bros | Personas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#071b33; --navy-soft:#123253; --cream:#f7f0df; --light:#fffdf7; --gold:#c79b36; --gold-light:#e6c978; --ink:#192638; --muted:#5d6670; --line:rgba(199,155,54,.38); --shadow:0 14px 38px rgba(7,27,51,.10); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--light); color:var(--ink); font:16px/1.75 "Lora",Georgia,serif; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--gold-light); outline-offset:4px; }
+    .container { width:min(1080px,calc(100% - 40px)); margin-inline:auto; }
+    header { position:sticky; top:0; z-index:10; background:rgba(7,27,51,.97); border-bottom:1px solid rgba(230,201,120,.35); }
+    .nav { min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { color:var(--cream); font-family:"Playfair Display",Georgia,serif; font-size:1.2rem; font-weight:700; text-decoration:none; white-space:nowrap; }
+    .brand span { color:var(--gold-light); }
+    nav ul { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px 20px; margin:0; padding:0; list-style:none; }
+    nav a { color:white; font-size:.76rem; font-weight:600; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; }
+    nav a:hover { color:var(--gold-light); }
+    .hero { padding:92px 0 80px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='260' viewBox='0 0 560 260'%3E%3Cg fill='%23ffffff' fill-opacity='.15' font-family='Georgia,serif'%3E%3Ctext x='22' y='48' font-size='22'%3Ex%C2%B2 %2B y%C2%B2 = r%C2%B2%3C/text%3E%3Ctext x='365' y='40' font-size='21'%3E%E2%88%AB f(x) dx%3C/text%3E%3Ctext x='130' y='132' font-size='26'%3E%E2%88%91 n = n(n%2B1)/2%3C/text%3E%3Ctext x='390' y='175' font-size='22'%3Ey = mx %2B b%3C/text%3E%3Ctext x='28' y='226' font-size='21'%3Ea%C2%B2 %2B b%C2%B2 = c%C2%B2%3C/text%3E%3C/g%3E%3C/svg%3E"),radial-gradient(circle at 82% 18%,rgba(199,155,54,.2),transparent 28%),linear-gradient(135deg,#06182e,#123253); color:white; }
+    .eyebrow { margin:0 0 14px; color:var(--gold-light); font-size:.78rem; font-weight:600; letter-spacing:.17em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:"Playfair Display",Georgia,serif; line-height:1.18; }
+    h1 { max-width:800px; margin:0; font-size:clamp(3rem,8vw,5.8rem); letter-spacing:-.04em; }
+    .intro { max-width:720px; margin:24px 0 0; color:#e9edf2; font-size:clamp(1rem,2vw,1.2rem); }
+    main { padding:72px 0 88px; background-color:var(--light); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='270' viewBox='0 0 460 270'%3E%3Cg fill='%23071b33' fill-opacity='.12' font-family='Georgia,serif'%3E%3Ctext x='18' y='45' font-size='22'%3Ex%C2%B2 %2B y%C2%B2 = r%C2%B2%3C/text%3E%3Ctext x='285' y='38' font-size='19'%3E%E2%88%AB f(x) dx%3C/text%3E%3Ctext x='85' y='124' font-size='25'%3E%E2%88%91 n = n(n%2B1)/2%3C/text%3E%3Ctext x='292' y='165' font-size='21'%3Ey = mx %2B b%3C/text%3E%3Ctext x='20' y='224' font-size='20'%3Ea%C2%B2 %2B b%C2%B2 = c%C2%B2%3C/text%3E%3Ctext x='325' y='250' font-size='23'%3E%CF%80r%C2%B2%3C/text%3E%3C/g%3E%3C/svg%3E"); background-size:460px 270px; background-attachment:fixed; }
+    .persona { scroll-margin-top:92px; overflow:hidden; border:1px solid var(--line); border-radius:20px; background:white; box-shadow:var(--shadow); }
+    .persona + .persona { margin-top:38px; }
+    .persona-header { padding:30px clamp(26px,5vw,46px); border-bottom:4px solid var(--gold); background:var(--navy); color:white; }
+    .persona-number { display:block; margin-bottom:6px; color:var(--gold-light); font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; }
+    .persona-header h2 { margin:0; font-size:clamp(2rem,5vw,3rem); }
+    .persona-body { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; background:var(--line); }
+    .field { padding:28px clamp(24px,4vw,38px); background:white; }
+    .field.full { grid-column:1 / -1; }
+    .field h3 { margin:0 0 10px; color:var(--navy); font-size:1.25rem; }
+    .field p,.field ul { margin:0; }
+    .field ul { padding-left:1.2rem; }
+    .field li + li { margin-top:7px; }
+    blockquote { margin:0; color:var(--navy-soft); font-size:1.08rem; font-style:italic; }
+    footer { padding:34px 0; border-top:5px solid var(--gold); background:var(--navy); color:#e8ecf0; }
+    footer p { margin:0; }
+    @media (max-width:760px) { header { position:static; } .nav { padding:14px 0; align-items:flex-start; } nav ul { gap:7px 12px; } .hero { padding:68px 0; } .persona-body { grid-template-columns:1fr; } .field.full { grid-column:auto; } }
+    @media (max-width:520px) { .container { width:min(100% - 28px,1080px); } nav a { font-size:.68rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html">Gym <span>Bros</span></a>
+      <nav aria-label="Persona navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="project-overview.html">Project Overview</a></li>
+          <li><a href="#coordinator">John</a></li>
+          <li><a href="#coach">Joseph</a></li>
+          <li><a href="#student">Robert</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Cal State LA Math Gym</p>
+      <h1>Personas</h1>
+      <p class="intro">Three key perspectives that guide how Gym Bros designs for better tutoring support, scheduling, and student success.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <article class="persona" id="coordinator">
+      <div class="persona-header"><span class="persona-number">Persona 01</span><h2>John</h2></div>
+      <div class="persona-body">
+        <section class="field"><h3>Role / Context</h3><p><strong>Math Gym Coordinator:</strong> John oversees tutoring services, supports the coaches, and uses attendance information to plan staffing and daily Math Gym operations.</p></section>
+        <section class="field"><h3>One-Sentence Description</h3><p>John needs a clear and reliable way to anticipate student demand so he can schedule enough coaches and maintain a supportive tutoring environment.</p></section>
+        <section class="field"><h3>Goals</h3><ul><li>Forecast the busiest drop-in tutoring periods.</li><li>Maintain a balanced student-to-coach ratio during peak hours.</li><li>Keep tutoring support aligned with students' academic and classroom needs.</li></ul></section>
+        <section class="field"><h3>Frustrations</h3><ul><li>Unpredictable attendance makes staffing difficult.</li><li>Limited or unclear attendance data slows down scheduling decisions.</li><li>Overly complicated or inaccessible tools make information harder to use.</li></ul></section>
+        <section class="field"><h3>A Representative Quote</h3><blockquote>“Strong math skills are essential for students' futures, especially in a changing world shaped by new technologies and AI.”</blockquote></section>
+        <section class="field"><h3>What Success Looks Like</h3><p>John can anticipate busy periods, schedule the right number of coaches, reduce overcrowding, and give students a more consistent tutoring experience.</p></section>
+      </div>
+    </article>
+
+    <article class="persona" id="coach">
+      <div class="persona-header"><span class="persona-number">Persona 02</span><h2>Joseph</h2></div>
+      <div class="persona-body">
+        <section class="field"><h3>Role / Context</h3><p><strong>Math Gym Coach:</strong> Joseph works directly with drop-in students, explains math concepts, and manages several requests for help when demand is high.</p></section>
+        <section class="field"><h3>One-Sentence Description</h3><p>Joseph wants a manageable and organized tutoring environment where he can give every student focused, meaningful support.</p></section>
+        <section class="field"><h3>Goals</h3><ul><li>Help students strengthen fundamental math skills and comprehension.</li><li>Make learning engaging while keeping it academically meaningful.</li><li>Give each student timely attention and clear guidance.</li></ul></section>
+        <section class="field"><h3>Frustrations</h3><ul><li>Too many students arriving at once makes individual support difficult.</li><li>An unstructured flow of students can make tutoring less efficient.</li><li>Inconsistent student attendance interrupts learning progress.</li></ul></section>
+        <section class="field"><h3>A Representative Quote</h3><blockquote>“What was once an impossible feat is now normal and evident.”</blockquote></section>
+        <section class="field"><h3>What Success Looks Like</h3><p>Joseph has a balanced workload and enough time to help each student understand the material, build confidence, and leave prepared for class.</p></section>
+      </div>
+    </article>
+
+    <article class="persona" id="student">
+      <div class="persona-header"><span class="persona-number">Persona 03</span><h2>Robert</h2></div>
+      <div class="persona-body">
+        <section class="field"><h3>Role / Context</h3><p><strong>Math Student:</strong> Robert visits the Math Gym for help understanding course material, completing assignments, and preparing for quizzes and exams.</p></section>
+        <section class="field"><h3>One-Sentence Description</h3><p>Robert wants timely and approachable math support that helps him understand difficult concepts and stay confident in his academic progress.</p></section>
+        <section class="field"><h3>Goals</h3><ul><li>Understand difficult math concepts and complete assignments successfully.</li><li>Build confidence, stronger study habits, and self-discipline.</li><li>Stay on track for graduation and future career opportunities.</li></ul></section>
+        <section class="field"><h3>Frustrations</h3><ul><li>Long waits during busy tutoring hours delay the help he needs.</li><li>Inconsistent attendance can cause him to fall behind.</li><li>Managing time and asking for help can be difficult when coursework becomes overwhelming.</li></ul></section>
+        <section class="field"><h3>A Representative Quote</h3><blockquote>“Live, laugh, and succeed with real confidence.”</blockquote></section>
+        <section class="field"><h3>What Success Looks Like</h3><p>Robert receives help without a long wait, understands the material, completes his courses successfully, and moves toward graduation with greater confidence.</p></section>
+      </div>
+    </article>
+  </main>
+
+  <footer><div class="container"><p>Gym Bros · CIS 5040 · Human-Centered Design</p></div></footer>
+</body>
+</html>
