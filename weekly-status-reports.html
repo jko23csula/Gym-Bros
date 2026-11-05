@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gym Bros weekly status reports for the Cal State LA Math Gym project.">
+  <title>Weekly Status Reports | Gym Bros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#071b33; --navy-soft:#123253; --cream:#f7f0df; --cream-light:#fffdf7; --gold:#c79b36; --gold-light:#e6c978; --ink:#192638; --muted:#5d6670; --line:rgba(199,155,54,.38); --shadow:0 18px 45px rgba(7,27,51,.13); --radius:18px; --green:#087456; --green-bg:#e2f5ed; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream-light); font-family:"Lora",Georgia,serif; font-size:16px; line-height:1.75; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--gold-light); outline-offset:4px; }
+    .skip-link { position:absolute; left:16px; top:-80px; z-index:100; padding:12px 16px; background:var(--gold-light); color:var(--navy); font-weight:700; }
+    .skip-link:focus { top:12px; }
+    .container { width:min(1120px,calc(100% - 40px)); margin-inline:auto; }
+    .site-header { position:sticky; top:0; z-index:10; background:rgba(7,27,51,.97); border-bottom:1px solid rgba(230,201,120,.35); }
+    .nav-wrap { min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { color:var(--cream); font-family:"Playfair Display",Georgia,serif; font-size:1.2rem; font-weight:700; letter-spacing:.04em; text-decoration:none; white-space:nowrap; }
+    .brand span { color:var(--gold-light); }
+    nav ul { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px 22px; margin:0; padding:0; list-style:none; }
+    nav a { color:#fffaf0; font-size:.76rem; font-weight:600; letter-spacing:.09em; text-decoration:none; text-transform:uppercase; }
+    nav a[aria-current="page"],nav a:hover { color:var(--gold-light); }
+    .hero { position:relative; overflow:hidden; padding:104px 0 92px; color:white; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='260' viewBox='0 0 560 260'%3E%3Cg fill='%23ffffff' fill-opacity='.15' font-family='Georgia,serif'%3E%3Ctext x='22' y='48' font-size='22'%3Ex%C2%B2 %2B y%C2%B2 = r%C2%B2%3C/text%3E%3Ctext x='365' y='40' font-size='21'%3E%E2%88%AB f(x) dx%3C/text%3E%3Ctext x='130' y='132' font-size='26'%3E%E2%88%91 n = n(n%2B1)/2%3C/text%3E%3Ctext x='390' y='175' font-size='22'%3Ey = mx %2B b%3C/text%3E%3Ctext x='28' y='226' font-size='21'%3Ea%C2%B2 %2B b%C2%B2 = c%C2%B2%3C/text%3E%3C/g%3E%3C/svg%3E"),radial-gradient(circle at 82% 18%,rgba(199,155,54,.20),transparent 27%),linear-gradient(135deg,#06182e 0%,#0b2a4a 62%,#123253 100%); }
+    .hero::after { content:""; position:absolute; right:-120px; bottom:-155px; width:430px; height:430px; border:1px solid rgba(230,201,120,.2); border-radius:50%; box-shadow:0 0 0 42px rgba(230,201,120,.04),0 0 0 84px rgba(230,201,120,.025); }
+    .eyebrow { margin:0 0 14px; color:var(--gold-light); font-family:"Lora",Georgia,serif; font-size:.78rem; font-weight:600; letter-spacing:.17em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:"Playfair Display",Georgia,serif; line-height:1.18; }
+    h1 { max-width:760px; margin:0; font-size:clamp(3rem,8vw,6.2rem); letter-spacing:-.04em; }
+    .hero-intro { max-width:650px; margin:24px 0 0; color:#e9edf2; font-size:clamp(1rem,2vw,1.22rem); }
+    .barbell { display:flex; align-items:center; width:180px; margin-bottom:26px; }
+    .barbell::before,.barbell::after { content:""; width:13px; height:34px; border:4px double var(--gold-light); border-radius:3px; }
+    .barbell span { width:100%; height:4px; background:var(--gold-light); }
+    main { position:relative; padding:76px 0 88px; background-color:var(--cream-light); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='270' viewBox='0 0 460 270'%3E%3Cg fill='%23071b33' fill-opacity='.16' font-family='Georgia,serif'%3E%3Ctext x='18' y='45' font-size='22'%3Ex%C2%B2 %2B y%C2%B2 = r%C2%B2%3C/text%3E%3Ctext x='285' y='38' font-size='19'%3E%E2%88%AB f(x) dx%3C/text%3E%3Ctext x='85' y='124' font-size='25'%3E%E2%88%91 n = n(n%2B1)/2%3C/text%3E%3Ctext x='292' y='165' font-size='21'%3Ey = mx %2B b%3C/text%3E%3Ctext x='20' y='224' font-size='20'%3Ea%C2%B2 %2B b%C2%B2 = c%C2%B2%3C/text%3E%3Ctext x='325' y='250' font-size='23'%3E%CF%80r%C2%B2%3C/text%3E%3C/g%3E%3C/svg%3E"); background-size:460px 270px; background-attachment:fixed; }
+    .report-index { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:28px; }
+    .report-index a { padding:10px 16px; border:2px solid var(--navy); border-radius:999px; background:white; color:var(--navy); font-weight:800; text-decoration:none; }
+    .report { scroll-margin-top:92px; border:1px solid var(--line); border-radius:var(--radius); background:var(--cream-light); box-shadow:var(--shadow); overflow:hidden; }
+    .report + .report { margin-top:38px; }
+    .report-head { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:28px clamp(22px,5vw,46px); color:white; background:var(--navy); }
+    .report-head h2 { margin:0; font-size:clamp(1.7rem,4vw,2.5rem); }
+    .health { display:inline-flex; align-items:center; gap:8px; padding:8px 13px; border:2px solid #7ee2bf; border-radius:999px; color:white; background:#075d47; font-weight:800; white-space:nowrap; }
+    .report-body { padding:clamp(24px,5vw,46px); }
+    .facts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0 0 34px; }
+    .fact { padding:18px; border-top:4px solid var(--gold); background:var(--cream); }
+    .fact dt { color:var(--muted); font-size:.8rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+    .fact dd { margin:5px 0 0; font-weight:750; }
+    .block + .block { margin-top:34px; }
+    .block h3 { margin:0 0 12px; color:var(--navy); font-size:1.45rem; }
+    .goal { padding:20px 22px; border-left:5px solid var(--gold); background:var(--cream); }
+    .items { display:grid; gap:12px; margin:0; padding:0; list-style:none; }
+    .items li { padding:16px 18px; border:1px solid var(--line); border-radius:12px; background:var(--cream-light); }
+    .owner { display:inline-block; margin-top:7px; color:var(--navy-soft); font-weight:800; }
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .principles { display:flex; flex-wrap:wrap; gap:9px; margin:0; padding:0; list-style:none; }
+    .principles li { padding:8px 12px; border:1px solid #9ad6c2; border-radius:999px; color:#075d47; background:var(--green-bg); font-weight:750; }
+    footer { padding:38px 0; border-top:5px solid var(--gold); color:#e8ecf0; background:var(--navy); }
+    .footer-wrap { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    footer p { margin:0; font-size:.9rem; }
+    .footer-name { color:var(--gold-light); font-family:"Playfair Display",Georgia,serif; font-size:1.3rem; font-weight:700; }
+    @media (max-width:860px) { .site-header { position:static; } .nav-wrap { padding-block:16px; align-items:flex-start; } .hero { padding:74px 0; } .facts,.two-col { grid-template-columns:1fr; } .report-head { align-items:flex-start; flex-direction:column; } .report { scroll-margin-top:20px; } }
+    @media (max-width:640px) { .container { width:min(100% - 28px,1120px); } main { padding-block:56px 68px; } .footer-wrap { display:block; } .footer-wrap p + p { margin-top:8px; } nav a { font-size:.75rem; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    @media print { .site-header,.report-index { display:none; } .hero { padding:48px 0; } .report { box-shadow:none; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Gym <span>Bros</span></a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#identity">Team</a></li>
+          <li><a href="project-overview.html">Project Overview</a></li>
+          <li><a href="personas.html">Personas</a></li>
+          <li><a href="weekly-status-reports.html" aria-current="page">Weekly Status</a></li>
+          <li><a href="index.html#purpose">Purpose</a></li>
+          <li><a href="index.html#communication">Communication</a></li>
+          <li><a href="index.html#decisions">Decisions</a></li>
+          <li><a href="index.html#agreements">Agreements</a></li>
+          <li><a href="index.html#conflict">Conflict</a></li>
+          <li><a href="index.html#success">Success</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="page-title">
+    <div class="container">
+      <div class="barbell" aria-hidden="true"><span></span></div>
+      <p class="eyebrow">CIS 5040 · Human-Centered Design</p>
+      <h1 id="page-title">Weekly Status Reports</h1>
+      <p class="hero-intro">Visible, honest updates on the Gym Bros project from prototype development through delivery.</p>
+    </div>
+  </section>
+
+  <main id="main" class="container">
+    <nav class="report-index" aria-label="Status report weeks">
+      <a href="#week-10">Week 10</a>
+    </nav>
+
+    <article class="report" id="week-10" aria-labelledby="week-10-title">
+      <div class="report-head">
+        <h2 id="week-10-title">Week 10 Status Report</h2>
+        <span class="health" aria-label="Project health: On track">● On Track</span>
+      </div>
+      <div class="report-body">
+        <dl class="facts">
+          <div class="fact"><dt>Reporting Period</dt><dd>Week 10</dd></div>
+          <div class="fact"><dt>Team Name</dt><dd>Gym Bros</dd></div>
+          <div class="fact"><dt>Report Author</dt><dd>Justin Ko</dd></div>
+        </dl>
+
+        <section class="block" aria-labelledby="week-10-goal-title">
+          <h3 id="week-10-goal-title">Project Goal</h3>
+          <p class="goal">Our goal is to help the Math Gym improve the student experience by forecasting drop-in tutoring demand and supporting a more balanced student-to-math-coach ratio. We will know we have succeeded when coaches feel less overwhelmed during peak hours and students receive timely support, leading to stronger participation and retention. The solution is also intended to be adaptable for other tutoring centers facing similar scheduling and staffing challenges.</p>
+        </section>
+
+        <section class="block" aria-labelledby="week-10-summary-title">
+          <h3 id="week-10-summary-title">Executive Summary</h3>
+          <p>The project is on track and currently ahead of schedule. The functional prototype has already been deployed to the server and can process general data, positioning the team to complete the upcoming sprint work on time.</p>
+        </section>
+
+        <div class="two-col block">
+          <section aria-labelledby="week-10-accomplishments-title">
+            <h3 id="week-10-accomplishments-title">Accomplishments This Week</h3>
+            <ul class="items">
+              <li>Completed back-end development and server deployment of the functional prototype.<br><span class="owner">Owner: Irving</span></li>
+              <li>Completed and closed the initial prototype stage and coordinated with Irving to help move the project into the next stage of the functional prototype.<br><span class="owner">Owner: Justin</span></li>
+            </ul>
+          </section>
+          <section aria-labelledby="week-10-next-title">
+            <h3 id="week-10-next-title">Plan for Next Week</h3>
+            <ul class="items">
+              <li>Meet with Dr. Daphne Liu and Dr. Jason O'Neill to provide an updated demonstration of the prototype.<br><span class="owner">Owners: Irving and Justin</span></li>
+              <li>Meet with the Information Systems department chair to discuss whether a master's student could participate in a fellowship supporting the Math Gym.<br><span class="owner">Owner: Irving</span></li>
+            </ul>
+          </section>
+        </div>
+
+        <section class="block" aria-labelledby="week-10-client-title">
+          <h3 id="week-10-client-title">Client Interactions</h3>
+          <p>Irving met with Dr. Jason O'Neill at the Math Gym. Dr. O'Neill reviewed the prototype and was pleased with its progress.</p>
+        </section>
+
+        <div class="two-col block">
+          <section aria-labelledby="week-10-risks-title">
+            <h3 id="week-10-risks-title">Risks</h3>
+            <p>None reported.</p>
+          </section>
+          <section aria-labelledby="week-10-blockers-title">
+            <h3 id="week-10-blockers-title">Blockers</h3>
+            <p>None reported.</p>
+          </section>
+        </div>
+
+        <section class="block" aria-labelledby="week-10-changes-title">
+          <h3 id="week-10-changes-title">Changes Since Last Report</h3>
+          <p>The prototype has advanced from its initial stage to a functional version with back-end development and server deployment completed. The team is now placing greater emphasis on validating the accuracy of the remaining Fall data as it is uploaded.</p>
+        </section>
+
+        <section class="block" aria-labelledby="week-10-principles-title">
+          <h3 id="week-10-principles-title">Design Principles Check</h3>
+          <ul class="principles">
+            <li>✓ Design meaningful systems</li>
+            <li>✓ User-first design</li>
+            <li>✓ Remember the why</li>
+            <li>✓ Everything on the screen is intentional</li>
+            <li>✓ Look, presentation and content</li>
+            <li>✓ Consistency</li>
+            <li>✓ Creative exploration</li>
+          </ul>
+        </section>
+
+        <section class="block" aria-labelledby="week-10-reflection-title">
+          <h3 id="week-10-reflection-title">Team Reflection</h3>
+          <p>We learned that the client is extremely satisfied with the prototype and wants us to verify the accuracy of the remaining Fall data as it is uploaded. One possible improvement is to add a checker that identifies overlapping records with the same check-in and check-out times on the same date. We could also present the prototype to Math Gym tutors and other users to gather additional feedback before the next development stage.</p>
+        </section>
+      </div>
+    </article>
+
+  </main>
+
+  <footer><div class="container footer-wrap"><p class="footer-name">Gym Bros</p><p>CIS 5040 · Human-Centered Design · Weekly Status Report</p></div></footer>
+</body>
+</html>
